@@ -12,7 +12,7 @@ env:
 before_script:
   - nvm install $(cat .nvmrc)
   - npm i
-script: npm run build
+script: node scripts/build.js
 deploy:
   local-dir: _site
   provider: pages
