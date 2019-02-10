@@ -16,7 +16,7 @@ module.exports = merge.smart(common, {
             loader: 'postcss-loader',
             options: {
               config: {
-                path: 'config/postcss.config.js'
+                path: 'config/postcss/postcss.config.js'
               }
             }
           },

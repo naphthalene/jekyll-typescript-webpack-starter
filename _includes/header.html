@@ -10,11 +10,11 @@
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
         <li>
-          <a href="/">{{ site.title }}</a>
+          <a href="{{ "/" | relative_url }}">{{ site.title }}</a>
         </li>
         {% for menuItem in site.data.menus.site %}
         <li>
-          <a href="{{ menuItem.link }}">{{ menuItem.title }}</a>
+          <a href="{{ menuItem.link |  | relative_url}}">{{ menuItem.title }}</a>
         </li>
         {% endfor %}
       </ul>
