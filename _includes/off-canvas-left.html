@@ -4,9 +4,6 @@
   </button>
   <!-- Menu -->
   <ul class="vertical menu">
-    <li>
-      <a href="{{ "/" | relative_url }}">Home</a>
-    </li>
     {% for menuItem in site.data.menus.site %}
     <li>
       <a href="{{ menuItem.link | relative_url }}">{{ menuItem.title }}</a>
