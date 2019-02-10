@@ -1,32 +1,23 @@
 language: ruby
-
-rvm:
-  - 2.6
-
 cache:
   bundler: true
   directories:
     - '$HOME/.npm'
     - '$TRAVIS_BUILD_DIR/.cache'
     - '$TRAVIS_BUILD_DIR/node_modules'
-
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-
+    - secure: HvUkTx1bQzewnl+O4luefAQBYYJp9z+mNaBYZterh8vWW9Z/eB1/HxJGh1vaM+tXnbsU7uSvi1PqBwVuIcMXOkfFBYDdj8/SONZCJL86sLYzy7EKWzgYkug1hkoNthQY9dH/xqODS42FfxVe+Y37Xt34YQKA5MWcnc4jnQIIY5il46aDd0cFRE9G+1OGo/knwSvDCWGS2j1jvOctOjsruzevulyhJVloPUX68OQYWPgfN40tMZ6xZQoBDWCbGBpy+fAcihizBOybCma2KTqcoRnRFV5aOWuqeG6b519gWugwXSuaAsSa1JKKSiUfCR1lnasprFGQmnXg5xUDHlW5mLkoXcJfMj80VvXHCOKbkt11bNW/df5F8DbIMD8Bh1gwxQm0JhARKqP34GawDkhIuSzwTJU2Dn7r8BBA8pLE1HZO6cvYlssmJvw4lRCtU852TWXHJ8jGbEKK4Wjw1e5aPjv2aOBu1WuO/oRXOECeIpQIVcRqlHZSsI4NMYo4y6jvWu7rN/KSwFLUPWIgtC/lBwkvRb8XdMzAlM9KdDS83/1eFMEo/ZcK33ubIswqLTqe8fvCl4P4YqcFkuD3sPN4u3j9rRt4OowzxmNh67mErOfTvnHaVS6Mr1ZgRsowsgYxgrrMWdkrheqJ3ytu0W5uuvgKLKSP6+l+iP+uXod3GJw=
 before_script:
-  - nvm use
+  - nvm install $(cat .nvmrc)
   - npm i
-#   - nvm install v8.5.0
-#   - npm i -g npm@5.4.2
-#   - npm i
-
 script: npm run build
-# deploy:
-#   local-dir: _site
-#   provider: pages
-#   skip-cleanup: true
-#   github-token: $GITHUB_TOKEN
-#   keep-history: true
-#   on:
-#     branch: master
+deploy:
+  local-dir: _site
+  provider: pages
+  skip-cleanup: true
+  github-token: '$GITHUB_TOKEN'
+  keep-history: true
+  on:
+    branch: master
