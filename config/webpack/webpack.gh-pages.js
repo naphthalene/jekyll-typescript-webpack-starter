@@ -7,6 +7,6 @@ module.exports = merge.smart(common, {
   output: {
     filename: '[name].[hash].bundle.js',
     path: path.resolve('assets'),
-    publicPath: '/jekyll-typescript-webpack-starter/'
+    publicPath: '/jekyll-typescript-webpack-starter/assets'
   }
 });
